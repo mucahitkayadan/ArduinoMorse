@@ -1,26 +1,26 @@
-#include <hfile.h>
+#include "Arduino.h"
+#include "hfile.h"
 
-Morse morse(13);
-void dly(){
-  delay(1000);
-  }
+Morse morse(13);  // Create an instance of the Morse class with pin 13
+
 void setup()
 {
+  pinMode(13, OUTPUT);  // Set pin 13 as OUTPUT (built-in LED on most Arduino boards)
 }
 
 void loop()
 {
-  //MUCAHIT means
-  //LL SSL LSLS SL SSSS SS L
-  morse.dash(2); dly(); //M
-  morse.dot(2); morse.dash(); dly(); //U
-  morse.dash(); morse.dot(); morse.dash(); morse.dot(); dly();//C
-  morse.dot(); morse.dash(); dly;//A
-  morse.dot(4); dly;
-  morse.dot(2); dly();
-  morse.dash(); dly();
-  /*morse.dot(); morse.dot(); morse.dot();
-  morse.dash(); morse.dash(); morse.dash();
-  morse.dot(); morse.dot(); morse.dot();*/
-  delay(3000);
+  // Emit SOS in Morse code (dot, dot, dot, dash, dash, dash, dot, dot, dot)
+  morse.dot();   // S
+  morse.dot();
+  morse.dot();
+  delay(1000);   // Delay between letters
+  morse.dash();  // O
+  morse.dash();
+  morse.dash();
+  delay(1000);   // Delay between letters
+  morse.dot();   // S
+  morse.dot();
+  morse.dot();
+  delay(2000);   // Delay between SOS repetitions
 }
